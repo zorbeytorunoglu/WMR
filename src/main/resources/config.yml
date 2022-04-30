@@ -1,0 +1,6 @@
+messages:
+  no-perm: '&e&lWMR &7You do not have permission for this'
+  only-in-game: '&e&lWMR &7You must be a player to use this command'
+  create-usage: '&e&lWMR &7/wmr create &a<name>'
+  delete-usage: '&e&lWMR &7/wmr delete &a<name>'
+  setblocks-usage: '&e&lWMR &7/wmr setblocks &a<mine>'

@@ -1,0 +1,16 @@
+name: WMR
+version: 1.0
+api-version: 1.13
+author: thelegend
+website: mc-marketi.com
+main: tr.thelegend.wminereset.WMR
+commands:
+  wmr:
+    description: Main command
+    aliases:
+      - weirdminereset
+      - wminereset
+permissions:
+  wmr.create:
+    description: Perm to create mines
+    default: op
