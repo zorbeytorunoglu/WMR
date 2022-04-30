@@ -86,11 +86,22 @@ public class WMR extends JavaPlugin {
             } else {
                 ssmine.setSoundString(null);
             }
-            if (this.mine.isSet(s+".sound")) {
+            if (this.mine.isSet(s+".effect")) {
                 ssmine.setEffect(Effect.valueOf(this.mine.getString(s+".effect")));
                 ssmine.setEffectString(this.mine.getString(s+".effect"));
             } else {
                 ssmine.setEffectString(null);
+            }
+
+            if (this.mine.isSet(s+".refilleffect")) {
+                ssmine.setRefillEffect(Effect.valueOf(this.mine.getString(s+".refilleffect")));
+                ssmine.setRefillEffectString(this.mine.getString(s+".refilleffect"));
+            } else {
+                ssmine.setRefillEffectString(null);
+            }
+
+            if (this.mine.isSet(s+".permission")) {
+                ssmine.setPermission(this.mine.getString(s+".permission"));
             }
             ssmine.setContent(content);
             ssmine.setDelay(delay);
@@ -112,6 +123,8 @@ public class WMR extends JavaPlugin {
             }
             if (mine.getSoundString()!=null) this.mine.set(mine.getName()+".sound", mine.getSoundString());
             if (mine.getEffectString()!=null) this.mine.set(mine.getName()+".effect", mine.getEffectString());
+            if (mine.getRefillEffectString()!=null) this.mine.set(mine.getName()+".refilleffect", mine.getRefillEffectString());
+            if (mine.getPermission()!=null) this.mine.set(mine.getName()+".permission", mine.getPermission());
         }
         this.mine.save();
     }

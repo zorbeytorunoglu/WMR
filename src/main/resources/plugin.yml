@@ -32,3 +32,6 @@ permissions:
   wmr.setrefilleffect:
     description: Perm to set refill effect
     default: op
+  wmr.setpermission:
+    description: Perm to set permission for a mine
+    default: op

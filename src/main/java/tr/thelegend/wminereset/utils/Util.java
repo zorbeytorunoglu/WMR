@@ -77,4 +77,9 @@ public class Util {
                 .contains(effect);
     }
 
+    public boolean hasPermission(Mine mine, Player player) {
+        if (mine.getPermission()==null) return true;
+        return player.hasPermission(mine.getPermission());
+    }
+
 }

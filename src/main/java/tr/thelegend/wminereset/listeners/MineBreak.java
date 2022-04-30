@@ -35,6 +35,12 @@ public class MineBreak implements Listener {
                 }
             }
 
+            if (!plugin.getUtil().hasPermission(mine,e.getPlayer())) {
+                e.getPlayer().sendMessage(plugin.getHandler().getNoPermForThisMine());
+                e.setCancelled(true);
+                return;
+            }
+
             if (mine.getSoundString()!=null) {
                 e.getPlayer().playSound(e.getPlayer().getLocation(), mine.getSound(), 2F, 1F);
             }

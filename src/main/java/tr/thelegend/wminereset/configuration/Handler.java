@@ -47,5 +47,7 @@ public class Handler {
     public String getRefillEffectSet() { return container.refillEffectSet; }
     public String getSetRefillEffectUsage() { return container.setRefillEffectUsage; }
     public ArrayList<String> getCommands() { ArrayList<String> cmds= new ArrayList<>(); for (String s: container.commands) { cmds.add(StringUtils.hex(s)); } return cmds; }
-
+    public String getNoPermForThisMine() { return container.noPermForThisMine; }
+    public String getInvalidString() { return container.invalidString; }
+    public String getPermissionSet() { return container.permissionSet; }
 }

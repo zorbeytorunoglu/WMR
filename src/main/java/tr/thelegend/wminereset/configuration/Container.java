@@ -32,6 +32,9 @@ public class Container {
     public final String setRefillEffectUsage;
     public final String refillEffectSet;
     public final List<String> commands;
+    public final String noPermForThisMine;
+    public final String invalidString;
+    public final String permissionSet;
 
     public Container(Resource file) {
 
@@ -61,6 +64,9 @@ public class Container {
         this.refillEffectSet=StringUtils.hex(file.getString("messages.refill-effect-set"));
         this.setRefillEffectUsage=StringUtils.hex(file.getString("messages.set-refill-effect-usage"));
         this.commands=file.getStringList("messages.commands");
+        this.noPermForThisMine=StringUtils.hex(file.getString("messages.noperm-for-this-mine"));
+        this.invalidString=StringUtils.hex(file.getString("messages.invalid-string"));
+        this.permissionSet=StringUtils.hex(file.getString("messages.permission-set"));
 
     }
 }

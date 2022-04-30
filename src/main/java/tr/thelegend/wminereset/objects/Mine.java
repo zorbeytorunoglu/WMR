@@ -18,6 +18,7 @@ public class Mine {
     private String effectString=null;
     private String refillEffectString=null;
     private Effect refillEffect;
+    private String permission=null;
 
     public Mine(String name) {
         super();
@@ -86,6 +87,8 @@ public class Mine {
     public void setRefillEffect(Effect refillEffect) {
         this.refillEffect=refillEffect;
     }
+    public String getPermission() { return permission; }
+    public void setPermission(String permission) { this.permission=permission; }
 
     public void reset() {
         if (content.isEmpty()) return;

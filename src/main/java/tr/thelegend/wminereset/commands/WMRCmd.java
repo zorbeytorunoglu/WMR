@@ -227,6 +227,39 @@ public class WMRCmd implements CommandExecutor {
                 return true;
             }
 
+            if (args[0].equalsIgnoreCase("setpermission")) {
+                if (!commandSender.hasPermission("wmr.setpermission")) {
+                    commandSender.sendMessage(plugin.getHandler().getNoPerm());
+                    return false;
+                }
+
+                if (args.length!=3) {
+                    commandSender.sendMessage(plugin.getHandler().getSetDelayUsage());
+                    return false;
+                }
+
+                String mineName=args[1];
+
+                if (!plugin.getUtil().mineExists(mineName)) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                Mine mine=plugin.getUtil().getMine(mineName);
+
+                if (mine==null) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                mine.setPermission(args[2]);
+
+                commandSender.sendMessage(plugin.getHandler().getPermissionSet().replace("%perm%", args[2])
+                        .replace("%mine%", mine.getName()));
+
+                return true;
+            }
+
             if (args[0].equalsIgnoreCase("setcontent")) {
 
                 if (!commandSender.hasPermission("wmr.setcontent")) {
