@@ -22,6 +22,13 @@ public class Container {
     public final String quitEditMode;
     public final String noBlockPlaced;
     public final String blocksSaved;
+    public final String invalidSound;
+    public final String soundSet;
+    public final String invalidEffect;
+    public final String effectSet;
+    public final String setEffectUsage;
+    public final String setSoundUsage;
+    public final String setContentUsage;
 
     public Container(Resource file) {
 
@@ -41,6 +48,13 @@ public class Container {
         this.quitEditMode=StringUtils.hex(file.getString("messages.quit-edit-mode"));
         this.noBlockPlaced=StringUtils.hex(file.getString("messages.noblockplaced"));
         this.blocksSaved=StringUtils.hex(file.getString("messages.blocks-saved"));
+        this.invalidSound=StringUtils.hex(file.getString("messages.invalid-sound"));
+        this.soundSet=StringUtils.hex(file.getString("messages.sound-set"));
+        this.invalidEffect=StringUtils.hex(file.getString("messages.invalid-effect"));
+        this.effectSet=StringUtils.hex(file.getString("messages.effect-set"));
+        this.setEffectUsage=StringUtils.hex(file.getString("messages.set-effect-usage"));
+        this.setSoundUsage=StringUtils.hex(file.getString("messages.set-sound-usage"));
+        this.setContentUsage=StringUtils.hex(file.getString("messages.set-content-usage"));
 
     }
 }

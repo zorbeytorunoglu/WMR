@@ -1,7 +1,9 @@
 package tr.thelegend.wminereset.objects;
 
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 
 import java.util.HashMap;
 
@@ -10,6 +12,10 @@ public class Mine {
     private final String name;
     private HashMap<Location, Material> content;
     private int delay;
+    private String soundString=null;
+    private Sound sound;
+    private Effect effect;
+    private String effectString=null;
 
     public Mine(String name) {
         super();
@@ -36,6 +42,38 @@ public class Mine {
 
     public void setContent(HashMap<Location, Material> content) {
         this.content = content;
+    }
+
+    public void setSoundString(String soundString) {
+        this.soundString=soundString;
+    }
+
+    public String getSoundString() {
+        return soundString;
+    }
+
+    public void setSound(Sound sound) {
+        this.sound=sound;
+    }
+
+    public Sound getSound() {
+        return sound;
+    }
+
+    public void setEffect(Effect effect) {
+        this.effect=effect;
+    }
+
+    public Effect getEffect() {
+        return effect;
+    }
+
+    public void setEffectString(String effectString) {
+        this.effectString=effectString;
+    }
+
+    public String getEffectString() {
+        return effectString;
     }
 
     public void reset() {

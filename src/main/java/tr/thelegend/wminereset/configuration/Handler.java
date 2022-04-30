@@ -37,4 +37,11 @@ public class Handler {
     public String getQuitEditMode() {return container.quitEditMode;}
     public String getNoBlockPlaced() { return container.noBlockPlaced; }
     public String getBlocksSaved() { return container.blocksSaved; }
+    public String getInvalidSound() { return container.invalidSound; }
+    public String getSoundSet() { return container.soundSet; }
+    public String getInvalidEffect() { return container.invalidEffect; }
+    public String getEffectSet() { return container.effectSet; }
+    public String getSetEffectUsage() { return container.setEffectUsage; }
+    public String getSetSoundUsage() { return container.setSoundUsage; }
+    public String getSetContentUsage() { return container.setContentUsage; }
 }

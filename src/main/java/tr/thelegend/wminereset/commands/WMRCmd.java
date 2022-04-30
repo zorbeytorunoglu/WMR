@@ -1,5 +1,7 @@
 package tr.thelegend.wminereset.commands;
 
+import org.bukkit.Effect;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -94,6 +96,84 @@ public class WMRCmd implements CommandExecutor {
 
             }
 
+            if (args[0].equalsIgnoreCase("setsound")) {
+                if (!commandSender.hasPermission("wmr.setsound")) {
+                    commandSender.sendMessage(plugin.getHandler().getNoPerm());
+                    return false;
+                }
+
+                if (args.length!=3) {
+                    commandSender.sendMessage(plugin.getHandler().getSetDelayUsage());
+                    return false;
+                }
+
+                String mineName=args[1];
+
+                if (!plugin.getUtil().mineExists(mineName)) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                if (!plugin.getUtil().isValidSound(args[2])) {
+                    commandSender.sendMessage(plugin.getHandler().getInvalidSound());
+                    return false;
+                }
+
+                Mine mine=plugin.getUtil().getMine(mineName);
+
+                if (mine==null) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                mine.setSoundString(args[2]);
+                mine.setSound(Sound.valueOf(args[2]));
+
+                commandSender.sendMessage(plugin.getHandler().getSoundSet().replace("%sound%", args[2])
+                        .replace("%mine%", mine.getName()));
+
+                return true;
+            }
+
+            if (args[0].equalsIgnoreCase("seteffect")) {
+                if (!commandSender.hasPermission("wmr.seteffect")) {
+                    commandSender.sendMessage(plugin.getHandler().getNoPerm());
+                    return false;
+                }
+
+                if (args.length!=3) {
+                    commandSender.sendMessage(plugin.getHandler().getSetDelayUsage());
+                    return false;
+                }
+
+                String mineName=args[1];
+
+                if (!plugin.getUtil().mineExists(mineName)) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                if (!plugin.getUtil().isValidEffect(args[2])) {
+                    commandSender.sendMessage(plugin.getHandler().getInvalidEffect());
+                    return false;
+                }
+
+                Mine mine=plugin.getUtil().getMine(mineName);
+
+                if (mine==null) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                mine.setEffectString(args[2]);
+                mine.setEffect(Effect.valueOf(args[2]));
+
+                commandSender.sendMessage(plugin.getHandler().getEffectSet().replace("%effect%", args[2])
+                        .replace("%mine%", mine.getName()));
+
+                return true;
+            }
+
             if (args[0].equalsIgnoreCase("setcontent")) {
 
                 if (!commandSender.hasPermission("wmr.setcontent")) {
@@ -102,6 +182,11 @@ public class WMRCmd implements CommandExecutor {
                 }
                 if (!(commandSender instanceof Player)) {
                     commandSender.sendMessage(plugin.getHandler().getOnlyInGame());
+                    return false;
+                }
+
+                if (args.length!=2) {
+                    commandSender.sendMessage(plugin.getHandler().getSetContentUsage());
                     return false;
                 }
 

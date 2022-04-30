@@ -1,6 +1,7 @@
 package tr.thelegend.wminereset.listeners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -23,6 +24,25 @@ public class MineBreak implements Listener {
         Mine mine=plugin.getUtil().getMine(e.getBlock());
 
         if (mine!=null) {
+
+            if (e.getPlayer().hasPermission("wmr.setcontent")) {
+                if (plugin.getUtil().inEditMode(e.getPlayer())) {
+                    if (mine.getContent().containsKey(e.getBlock().getLocation())) {
+                        mine.getContent().remove(e.getBlock().getLocation());
+                        e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENTITY_VILLAGER_NO, 2F, 1F);
+                        return;
+                    }
+                }
+            }
+
+            if (mine.getSoundString()!=null) {
+                e.getPlayer().playSound(e.getPlayer().getLocation(), mine.getSound(), 2F, 1F);
+            }
+
+            if (mine.getEffectString()!=null) {
+                e.getPlayer().playEffect(e.getBlock().getLocation(), mine.getEffect(), 1);
+            }
+
             Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin,
                     () -> e.getBlock().setType(mine.getContent().get(e.getBlock().getLocation())),20L*mine.getDelay());
         }

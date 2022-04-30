@@ -23,3 +23,9 @@ permissions:
   wmr.mine:
     description: Perm to mine mines
     default: true
+  wmr.setsound:
+    description: Perm to set sounds
+    default: op
+  wmr.seteffect:
+    description: Perm to set effects
+    default: op

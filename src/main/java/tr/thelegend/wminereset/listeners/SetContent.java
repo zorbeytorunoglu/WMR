@@ -44,10 +44,10 @@ public class SetContent implements Listener {
 
     @EventHandler
     public void onDone(AsyncPlayerChatEvent e) {
-        if (!placedblocks.containsKey(e.getPlayer().getName())) return;
+        if (!plugin.getUtil().inEditMode(e.getPlayer().getName())) return;
         if (e.getMessage().equalsIgnoreCase("done")) {
             if (placedblocks.isEmpty()) {
-                e.getPlayer().sendMessage(plugin.getHandler().getNoBlockPlaced());
+                e.getPlayer().sendMessage(plugin.getHandler().getQuitEditMode());
             } else {
                 Mine mine=plugin.getEditMode().get(e.getPlayer().getName());
                 ArrayList<Block> blocks=placedblocks.get(e.getPlayer().getName());

@@ -1,7 +1,9 @@
 package tr.thelegend.wminereset;
 
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.units.qual.A;
 import tr.thelegend.wminereset.commands.WMRCmd;
@@ -78,6 +80,18 @@ public class WMR extends JavaPlugin {
                 content.put(loc,mat);
             }
             Mine ssmine=new Mine(s);
+            if (this.mine.isSet(s+".sound")) {
+                ssmine.setSound(Sound.valueOf(this.mine.getString(s+".sound")));
+                ssmine.setSoundString(this.mine.getString(s+".sound"));
+            } else {
+                ssmine.setSoundString(null);
+            }
+            if (this.mine.isSet(s+".sound")) {
+                ssmine.setEffect(Effect.valueOf(this.mine.getString(s+".effect")));
+                ssmine.setEffectString(this.mine.getString(s+".effect"));
+            } else {
+                ssmine.setEffectString(null);
+            }
             ssmine.setContent(content);
             ssmine.setDelay(delay);
             mineArrayList.add(ssmine);
@@ -96,6 +110,8 @@ public class WMR extends JavaPlugin {
                 this.mine.set(mine.getName()+".content."+id+".material",mine.getContent().get(loc).toString());
                 id++;
             }
+            if (mine.getSoundString()!=null) this.mine.set(mine.getName()+".sound", mine.getSoundString());
+            if (mine.getEffectString()!=null) this.mine.set(mine.getName()+".effect", mine.getEffectString());
         }
         this.mine.save();
     }
