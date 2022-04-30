@@ -1,5 +1,5 @@
 # WMR
-A mine resetter, but a different one.
+A mine resetter, but a weird one.
 
 # Video
 https://youtu.be/rh3vH54-CgA
