@@ -24,6 +24,20 @@ public class WMRCmd implements CommandExecutor {
 
         if (command.getName().equalsIgnoreCase("wmr")) {
 
+            if (args.length==0) {
+                if (!commandSender.hasPermission("wmr.commands")) {
+                    commandSender.sendMessage(plugin.getHandler().getNoPerm());
+                    return false;
+                }
+
+                for (String s:plugin.getHandler().getCommands()) {
+                    commandSender.sendMessage(s);
+                }
+
+                return true;
+
+            }
+
             if (args[0].equalsIgnoreCase("create")) {
                 if (!commandSender.hasPermission("wmr.create")) {
                     commandSender.sendMessage(plugin.getHandler().getNoPerm());
@@ -135,8 +149,8 @@ public class WMRCmd implements CommandExecutor {
                 return true;
             }
 
-            if (args[0].equalsIgnoreCase("seteffect")) {
-                if (!commandSender.hasPermission("wmr.seteffect")) {
+            if (args[0].equalsIgnoreCase("setbreakeffect")) {
+                if (!commandSender.hasPermission("wmr.setbreakeffect")) {
                     commandSender.sendMessage(plugin.getHandler().getNoPerm());
                     return false;
                 }
@@ -169,6 +183,45 @@ public class WMRCmd implements CommandExecutor {
                 mine.setEffect(Effect.valueOf(args[2]));
 
                 commandSender.sendMessage(plugin.getHandler().getEffectSet().replace("%effect%", args[2])
+                        .replace("%mine%", mine.getName()));
+
+                return true;
+            }
+
+            if (args[0].equalsIgnoreCase("setrefilleffect")) {
+                if (!commandSender.hasPermission("wmr.setrefilleffect")) {
+                    commandSender.sendMessage(plugin.getHandler().getNoPerm());
+                    return false;
+                }
+
+                if (args.length!=3) {
+                    commandSender.sendMessage(plugin.getHandler().getSetRefillEffectUsage());
+                    return false;
+                }
+
+                String mineName=args[1];
+
+                if (!plugin.getUtil().mineExists(mineName)) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                if (!plugin.getUtil().isValidEffect(args[2])) {
+                    commandSender.sendMessage(plugin.getHandler().getInvalidEffect());
+                    return false;
+                }
+
+                Mine mine=plugin.getUtil().getMine(mineName);
+
+                if (mine==null) {
+                    commandSender.sendMessage(plugin.getHandler().getMineNotFound());
+                    return false;
+                }
+
+                mine.setRefillEffectString(args[2]);
+                mine.setRefillEffect(Effect.valueOf(args[2]));
+
+                commandSender.sendMessage(plugin.getHandler().getRefillEffectSet().replace("%effect%", args[2])
                         .replace("%mine%", mine.getName()));
 
                 return true;

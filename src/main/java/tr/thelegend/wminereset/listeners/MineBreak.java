@@ -43,8 +43,11 @@ public class MineBreak implements Listener {
                 e.getPlayer().playEffect(e.getBlock().getLocation(), mine.getEffect(), 1);
             }
 
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin,
-                    () -> e.getBlock().setType(mine.getContent().get(e.getBlock().getLocation())),20L*mine.getDelay());
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> {
+                e.getBlock().setType(mine.getContent().get(e.getBlock().getLocation()));
+                if (mine.getRefillEffectString()!=null) e.getPlayer().playEffect(e.getBlock().getLocation(), mine.getRefillEffect(), 1);
+            },20L*mine.getDelay());
+
         }
 
     }

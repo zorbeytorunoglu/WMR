@@ -26,6 +26,9 @@ permissions:
   wmr.setsound:
     description: Perm to set sounds
     default: op
-  wmr.seteffect:
-    description: Perm to set effects
+  wmr.setbreakeffect:
+    description: Perm to set break effects
+    default: op
+  wmr.setrefilleffect:
+    description: Perm to set refill effect
     default: op

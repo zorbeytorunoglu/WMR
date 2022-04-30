@@ -22,6 +22,8 @@ messages:
   set-sound-usage: '&e&lWMR &7/wmr setsound <mine> <sound>'
   set-effect-usage: '&e&lWMR &7/wmr seteffect <mine> <effect>'
   set-content-usage: '&e&lWMR &7/wmr setcontent &a<mine>'
+  set-refill-effect-usage: '&e&lWMR &7/wmr setrefilleffect &a<mine> <effect>'
+  refill-effect-set: '&e&lWMR &7Refill effect &a%effect% &7is set for &a%mine%'
   commands:
     - '&e&lWMR &7by #fb220bt#fb390fh#fc4f13e#fc6616l#fc7c1ae#fc931eg#fda922e#fdc025n#fdd629d'
     - '&7/wmr create &a<mine>'
@@ -32,8 +34,10 @@ messages:
     - '&fTo enter edit mode for a mine'
     - '&7/wmr setsound &a<mine> <sound>'
     - '&fTo set the sound when breaking that mines'' blocks'
-    - '&7/wmr seteffect &a<mine> <effect>'
-    - '&fTo set an effect mine blocks'
+    - '&7/wmr setbreakeffect &a<mine> <effect>'
+    - '&fTo set a break effect for mine blocks'
+    - '&7/wmr setrefilleffect &a<mine> <effect>'
+    - '&fTo set a refill effect for mine blocks'
   after-creation:
     - '&e&lWMR &7Mine named &a%mine% &7is created!'
     - '&7You need to set the content of the mine and its delay'

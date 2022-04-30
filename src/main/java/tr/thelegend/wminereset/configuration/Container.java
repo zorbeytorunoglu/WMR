@@ -29,6 +29,9 @@ public class Container {
     public final String setEffectUsage;
     public final String setSoundUsage;
     public final String setContentUsage;
+    public final String setRefillEffectUsage;
+    public final String refillEffectSet;
+    public final List<String> commands;
 
     public Container(Resource file) {
 
@@ -55,6 +58,9 @@ public class Container {
         this.setEffectUsage=StringUtils.hex(file.getString("messages.set-effect-usage"));
         this.setSoundUsage=StringUtils.hex(file.getString("messages.set-sound-usage"));
         this.setContentUsage=StringUtils.hex(file.getString("messages.set-content-usage"));
+        this.refillEffectSet=StringUtils.hex(file.getString("messages.refill-effect-set"));
+        this.setRefillEffectUsage=StringUtils.hex(file.getString("messages.set-refill-effect-usage"));
+        this.commands=file.getStringList("messages.commands");
 
     }
 }

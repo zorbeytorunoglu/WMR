@@ -44,4 +44,8 @@ public class Handler {
     public String getSetEffectUsage() { return container.setEffectUsage; }
     public String getSetSoundUsage() { return container.setSoundUsage; }
     public String getSetContentUsage() { return container.setContentUsage; }
+    public String getRefillEffectSet() { return container.refillEffectSet; }
+    public String getSetRefillEffectUsage() { return container.setRefillEffectUsage; }
+    public ArrayList<String> getCommands() { ArrayList<String> cmds= new ArrayList<>(); for (String s: container.commands) { cmds.add(StringUtils.hex(s)); } return cmds; }
+
 }

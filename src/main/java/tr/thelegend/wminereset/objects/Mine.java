@@ -16,6 +16,8 @@ public class Mine {
     private Sound sound;
     private Effect effect;
     private String effectString=null;
+    private String refillEffectString=null;
+    private Effect refillEffect;
 
     public Mine(String name) {
         super();
@@ -74,6 +76,15 @@ public class Mine {
 
     public String getEffectString() {
         return effectString;
+    }
+
+    public Effect getRefillEffect() { return refillEffect; }
+    public String getRefillEffectString() { return refillEffectString; }
+    public void setRefillEffectString(String refillEffectString) {
+        this.refillEffectString=refillEffectString;
+    }
+    public void setRefillEffect(Effect refillEffect) {
+        this.refillEffect=refillEffect;
     }
 
     public void reset() {
