@@ -14,3 +14,12 @@ permissions:
   wmr.create:
     description: Perm to create mines
     default: op
+  wmr.setdelay:
+    description: Perm to set delay for the mines
+    default: op
+  wmr.setcontent:
+    description: Perm to set content of a mine
+    default: op
+  wmr.mine:
+    description: Perm to mine mines
+    default: true

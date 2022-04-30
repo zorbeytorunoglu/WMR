@@ -26,4 +26,28 @@ public class StringUtils {
         return ChatColor.translateAlternateColorCodes('&', message);
     }
 
+    public static boolean isAlphanumeric(String str)
+    {
+        char[] charArray = str.toCharArray();
+        for(char c:charArray)
+        {
+            if (!Character.isLetterOrDigit(c))
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean isNumeric(String string) {
+        int intValue;
+        if(string == null || string.equals("")) {
+            return false;
+        }
+        try {
+            intValue = Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
 }
