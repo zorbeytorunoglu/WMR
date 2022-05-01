@@ -252,7 +252,11 @@ public class WMRCmd implements CommandExecutor {
                     return false;
                 }
 
-                mine.setPermission(args[2]);
+                if (args[2].equalsIgnoreCase("none")) {
+                    mine.setPermission(null);
+                } else {
+                    mine.setPermission(args[2]);
+                }
 
                 commandSender.sendMessage(plugin.getHandler().getPermissionSet().replace("%perm%", args[2])
                         .replace("%mine%", mine.getName()));
