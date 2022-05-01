@@ -41,6 +41,8 @@ messages:
     - '&fTo set a break effect for mine blocks'
     - '&7/wmr setrefilleffect &a<mine> <effect>'
     - '&fTo set a refill effect for mine blocks'
+    - '&7/wmr setpermission &a<mine> <permission>'
+    - '&fTo set a permission for players to break this mine. Use ''none'' to remove permission.'
   after-creation:
     - '&e&lWMR &7Mine named &a%mine% &7is created!'
     - '&7You need to set the content of the mine and its delay'
